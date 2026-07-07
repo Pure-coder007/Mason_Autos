@@ -1,4 +1,4 @@
-.mason-site {
+.on-site {
     --accent-color: #d8b35f;
     --heading-color: #101010;
     --default-color: #3a4048;
@@ -23,6 +23,20 @@
     transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
+.mason-site .branding .container {
+    max-width: 100%;
+    padding-left: 3.75rem !important;
+    padding-right: clamp(0.45rem, 1.5vw, 1rem) !important;
+    justify-content: flex-start !important;
+}
+
+.mason-site .branding .logo {
+    margin-right: auto;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    justify-content: flex-start !important;
+}
+
 .mason-site.scrolled .branding {
     background: rgba(8, 8, 8, 0.74);
     backdrop-filter: blur(14px);
@@ -40,18 +54,39 @@
 }
 
 .mason-brand-logo {
-    width: 340px;
-    height: 340px;
     object-fit: contain;
-    margin-right: 24px;
+    margin-right: 0;
     flex-shrink: 0;
+    display: block;
 }
 
-@media (max-width: 576px) {
-    .mason-brand-logo {
-        width: 220px;
-        height: 220px;
-        margin-right: 16px;
+@media (max-width: 1199px) {
+    .mason-site .branding .container {
+        padding-left: 1.5rem !important;
+    }
+
+    .mason-site .header .logo img,
+    .mason-site .branding .logo img,
+    .mason-site img.mason-brand-logo {
+        width: 80px !important;
+        height: 80px !important;
+        max-height: none !important;
+        max-width: none !important;
+        margin-right: 0 !important;
+        object-fit: contain;
+    }
+}
+
+@media (min-width: 1200px) {
+    .mason-site .header .logo img,
+    .mason-site .branding .logo img,
+    .mason-site img.mason-brand-logo {
+        width: 120px;
+        height: 120px;
+        max-height: none !important;
+        max-width: none !important;
+        margin-right: 0 !important;
+        object-fit: contain;
     }
 }
 
@@ -148,6 +183,18 @@
     color: #111;
     border: none;
     box-shadow: 0 18px 42px rgba(203, 160, 74, 0.28);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 54px;
+    padding: 0.95rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.98rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, filter 0.28s ease, background 0.28s ease;
 }
 
 .mason-hero-carousel .btn-secondary,
@@ -156,6 +203,42 @@
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.18);
     color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 54px;
+    padding: 0.95rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.98rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, background-color 0.28s ease, border-color 0.28s ease;
+}
+
+.mason-hero-carousel .btn-primary:hover,
+.mason-site .btn-primary:hover,
+.mason-site .php-email-form button[type=submit]:hover,
+.mason-hero-carousel .btn-secondary:hover,
+.mason-site .btn-outline:hover,
+.mason-site .btn-secondary:hover {
+    transform: translateY(-2px);
+}
+
+.mason-hero-carousel .btn-primary:hover,
+.mason-site .btn-primary:hover,
+.mason-site .php-email-form button[type=submit]:hover {
+    box-shadow: 0 22px 48px rgba(203, 160, 74, 0.34);
+    filter: saturate(1.05) brightness(1.02);
+}
+
+.mason-hero-carousel .btn-secondary:hover,
+.mason-site .btn-outline:hover,
+.mason-site .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(240, 205, 126, 0.5);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.12);
 }
 
 .mason-hero-carousel .carousel-indicators [data-bs-target] {
@@ -605,7 +688,7 @@ h6 {
 }
 
 .header .branding {
-    min-height: 60px;
+    min-height: 92px;
     padding: 10px 0;
 }
 
@@ -769,11 +852,17 @@ h6 {
 /* Mobile Navigation */
 
 @media (max-width: 1199px) {
+    .mason-site .branding .container {
+        padding-right: 0.6rem !important;
+    }
+    .mason-site .navmenu {
+        margin-left: auto !important;
+    }
     .mobile-nav-toggle {
         color: var(--nav-color);
         font-size: 28px;
         line-height: 0;
-        margin-right: 10px;
+        margin-right: 0;
         cursor: pointer;
         transition: color 0.3s;
     }
@@ -1126,12 +1215,11 @@ h6 {
         line-height: 1.5;
         margin-bottom: 15px;
     }
-
-.mason-site .navmenu .megamenu-2 .product-link:hover small,
-.mason-site .navmenu .megamenu-2 .resource-category:hover p,
-.mason-site .navmenu .megamenu-2 .featured-banner .banner-content:hover .banner-info p {
-    color: #fff799 !important;
-}
+    .mason-site .navmenu .megamenu-2 .product-link:hover small,
+    .mason-site .navmenu .megamenu-2 .resource-category:hover p,
+    .mason-site .navmenu .megamenu-2 .featured-banner .banner-content:hover .banner-info p {
+        color: #fff799 !important;
+    }
     .navmenu .megamenu-2 .tab-content .resources-layout .resource-categories .resource-category .resource-link {
         color: var(--accent-color);
         font-size: 13px;
@@ -5788,4 +5876,268 @@ section,
 
 .hero.section.mason-hero-carousel>.carousel {
     width: 100%;
+}
+
+@media (max-width: 767.98px) {
+    .hero.section.mason-hero-carousel,
+    .hero.section.mason-hero-carousel .carousel,
+    .hero.section.mason-hero-carousel .carousel-inner,
+    .hero.section.mason-hero-carousel .carousel-item {
+        min-height: 92svh;
+    }
+    .hero.section.mason-hero-carousel .carousel-item {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        background: radial-gradient(circle at top right, rgba(216, 179, 95, 0.22), transparent 30%), linear-gradient(180deg, #060606 0%, #111111 52%, #f7f3ec 52%, #f7f3ec 100%);
+    }
+    .hero.section.mason-hero-carousel .hero-background {
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 46%;
+        overflow: hidden;
+        border-bottom-left-radius: 36px;
+        border-bottom-right-radius: 36px;
+    }
+    .hero.section.mason-hero-carousel .hero-background img {
+        object-fit: cover;
+        object-position: center 32%;
+        transform: scale(1);
+        background: #080808;
+    }
+    .hero.section.mason-hero-carousel .hero-background .overlay {
+        background: linear-gradient(180deg, rgba(5, 5, 5, 0.16) 0%, rgba(5, 5, 5, 0.1) 35%, rgba(5, 5, 5, 0.78) 100%);
+    }
+    .hero.section.mason-hero-carousel .container {
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
+        position: relative;
+        z-index: 2;
+    }
+    .hero.section.mason-hero-carousel .row.min-vh-100 {
+        min-height: 92svh !important;
+        align-items: flex-end !important;
+        padding-top: 7rem;
+        padding-bottom: 1.6rem;
+    }
+    .hero.section.mason-hero-carousel .hero-content {
+        max-width: 100%;
+        margin: 0 auto;
+        text-align: left;
+        padding: 1.35rem 1.2rem 1.25rem;
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.94);
+        border: 1px solid rgba(17, 17, 17, 0.06);
+        box-shadow: 0 28px 70px rgba(14, 18, 29, 0.18);
+        backdrop-filter: blur(12px);
+    }
+    .hero.section.mason-hero-carousel .hero-content h1 {
+        color: #111111;
+        font-size: clamp(1.55rem, 5.4vw, 2.05rem);
+        line-height: 1.05;
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.04em;
+    }
+    .hero.section.mason-hero-carousel .hero-content p {
+        font-size: 0.88rem;
+        line-height: 1.58;
+        margin-bottom: 1.15rem;
+        color: #4b525b;
+    }
+    .hero.section.mason-hero-carousel .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.66rem;
+        padding: 0.46rem 0.82rem;
+        margin-bottom: 0.8rem;
+        border-radius: 999px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: rgba(216, 179, 95, 0.14);
+        border-color: rgba(216, 179, 95, 0.26);
+        color: #9b7428;
+    }
+    .hero.section.mason-hero-carousel .hero-actions {
+        display: flex;
+        justify-content: flex-start;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+    }
+    .hero.section.mason-hero-carousel .hero-actions .btn-primary,
+    .hero.section.mason-hero-carousel .hero-actions .btn-secondary {
+        flex: 1 1 calc(50% - 0.35rem);
+        min-width: 0;
+        max-width: none;
+        min-height: 48px;
+        padding: 0.82rem 1rem;
+        font-size: 0.84rem;
+    }
+    .hero.section.mason-hero-carousel .hero-actions .btn-secondary {
+        background: #111111;
+        border-color: #111111;
+        color: #ffffff;
+        box-shadow: 0 16px 34px rgba(17, 17, 17, 0.18);
+    }
+    .hero.section.mason-hero-carousel .carousel-indicators {
+        bottom: 47%;
+        margin-bottom: 0;
+        gap: 0.32rem;
+    }
+    .hero.section.mason-hero-carousel .carousel-indicators [data-bs-target] {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        opacity: 0.5;
+    }
+    .hero.section.mason-hero-carousel .carousel-indicators .active {
+        width: 24px;
+        opacity: 1;
+    }
+    html {
+        font-size: 14px;
+    }
+    body {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    p,
+    li,
+    label,
+    input,
+    textarea,
+    select,
+    .form-control,
+    .section-title p,
+    .lead,
+    .subtitle,
+    .mason-site .content p,
+    .mason-site .mason-service-panel p,
+    .mason-site .mason-contact-card p,
+    .mason-site .mason-contact-card li {
+        font-size: 0.9rem !important;
+        line-height: 1.6;
+    }
+    h1,
+    .mason-inner-hero h1 {
+        font-size: clamp(1.8rem, 6vw, 2.35rem) !important;
+        line-height: 1.12;
+    }
+    h2,
+    .mason-site .content h2,
+    .mason-site .section-title h2,
+    .mason-site .services-content h2 {
+        font-size: clamp(1.45rem, 5vw, 1.95rem) !important;
+        line-height: 1.2;
+    }
+    h3,
+    .mason-site .mason-contact-card h3 {
+        font-size: clamp(1.25rem, 4.7vw, 1.65rem) !important;
+    }
+    h4,
+    .mason-site .mason-service-panel h4 {
+        font-size: 1.05rem !important;
+        line-height: 1.3;
+    }
+    h5 {
+        font-size: 0.92rem !important;
+    }
+    .mason-site .btn-primary,
+    .mason-site .btn-secondary,
+    .mason-site .btn-outline,
+    .mason-site .php-email-form button[type=submit] {
+        min-height: 48px;
+        padding: 0.82rem 1.2rem;
+        font-size: 0.9rem !important;
+        width: auto;
+    }
+    .cta-wrapper,
+    .hero-actions {
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 1199px) {
+    .mobile-nav-toggle,
+    .mobile-nav-active .mobile-nav-toggle {
+        color: #111111 !important;
+    }
+    .mason-site .navmenu ul {
+        background: #ffffff;
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.14);
+        border-radius: 18px;
+        border: 1px solid rgba(17, 17, 17, 0.08);
+    }
+    .mason-site .navmenu a,
+    .mason-site .navmenu a:focus,
+    .mason-site .navmenu .dropdown ul a,
+    .mason-site .navmenu .megamenu-2 .mobile-megamenu li a,
+    .mason-site .navmenu a i,
+    .mason-site .navmenu a:focus i,
+    .mason-site .navmenu .megamenu-2>a,
+    .mason-site .navmenu .megamenu-2>a:focus {
+        color: #111111 !important;
+    }
+    .mason-site .navmenu a:hover,
+    .mason-site .navmenu .active,
+    .mason-site .navmenu .active:focus,
+    .mason-site .navmenu li:hover>a {
+        color: #111111 !important;
+    }
+    .mason-site .navmenu .toggle-dropdown {
+        color: #111111 !important;
+    }
+    .mason-site .navmenu a i,
+    .mason-site .navmenu a:focus i,
+    .mason-site .navmenu .active i,
+    .mason-site .navmenu .active:focus i {
+        background: rgba(17, 17, 17, 0.06) !important;
+        color: #111111 !important;
+        transform: none !important;
+    }
+    .mason-site .navmenu .dropdown>.dropdown-active,
+    .mason-site .navmenu .megamenu-2 .mobile-megamenu.dropdown-active {
+        background: rgba(17, 17, 17, 0.03) !important;
+    }
+}
+
+border: 1px solid rgba(17,
+17,
+17,
+0.08);
+
+}
+.mason-site .navmenu a,
+.mason-site .navmenu a:focus,
+.mason-site .navmenu .dropdown ul a,
+.mason-site .navmenu .megamenu-2 .mobile-megamenu li a,
+.mason-site .navmenu a i,
+.mason-site .navmenu a:focus i,
+.mason-site .navmenu .megamenu-2>a,
+.mason-site .navmenu .megamenu-2>a:focus {
+    color: #111111 !important;
+}
+.mason-site .navmenu a:hover,
+.mason-site .navmenu .active,
+.mason-site .navmenu .active:focus,
+.mason-site .navmenu li:hover>a {
+    color: #111111 !important;
+}
+.mason-site .navmenu .toggle-dropdown {
+    color: #111111 !important;
+}
+.mason-site .navmenu a i,
+.mason-site .navmenu a:focus i,
+.mason-site .navmenu .active i,
+.mason-site .navmenu .active:focus i {
+    background: rgba(17, 17, 17, 0.06) !important;
+    color: #111111 !important;
+    transform: none !important;
+}
+.mason-site .navmenu .dropdown>.dropdown-active,
+.mason-site .navmenu .megamenu-2 .mobile-megamenu.dropdown-active {
+    background: rgba(17, 17, 17, 0.03) !important;
+}
+
+}
+
 }
