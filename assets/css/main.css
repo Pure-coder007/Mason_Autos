@@ -429,15 +429,27 @@
 
 .mason-site .footer {
     background: #0b0b0b;
-    color: rgba(255, 255, 255, 0.76);
+    color: #ffffff;
 }
 
 .mason-site .footer a,
+.mason-site .footer p,
+.mason-site .footer li,
 .mason-site .footer h4,
 .mason-site .footer .sitename,
 .mason-site .footer strong,
-.mason-site .footer span {
-    color: inherit;
+.mason-site .footer span,
+.mason-site .footer .credits,
+.mason-site .footer .copyright {
+    color: #ffffff;
+}
+
+.mason-site .footer .footer-links ul a,
+.mason-site .footer .footer-links ul a:hover,
+.mason-site .footer .footer-contact p,
+.mason-site .footer .footer-about p,
+.mason-site .footer .social-links a {
+    color: #ffffff;
 }
 
 .mason-site .footer .footer-top {
@@ -1433,46 +1445,104 @@ h6 {
     inset: 0;
     z-index: 9999;
     overflow: hidden;
-    background-color: var(--background-color);
+    background:
+        radial-gradient(circle at top, rgba(216, 179, 95, 0.12), transparent 38%),
+        radial-gradient(circle at bottom, rgba(179, 24, 24, 0.18), transparent 34%),
+        linear-gradient(145deg, #040404 0%, #111111 48%, #050505 100%);
     transition: all 0.6s ease-out;
     width: 100%;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 2rem;
 }
 
-#preloader div {
-    width: 4px;
-    height: 40px;
-    background-color: var(--accent-color);
-    margin: 0 4px;
+.mason-loader {
+    position: relative;
+    width: min(20vw, 120px);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
 }
 
-#preloader div:nth-child(1) {
-    animation: animate-preloader 1s ease-in-out -0.45s infinite;
+.mason-loader__icon {
+    font-size: clamp(3rem, 7vw, 4.5rem);
+    color: #f0cd7e;
+    line-height: 1;
+    filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.35));
+    animation: mason-loader-pulse 1.8s ease-in-out infinite;
 }
 
-#preloader div:nth-child(2) {
-    animation: animate-preloader 1s ease-in-out -0.3s infinite;
+.mason-loader__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0 1.5rem;
+    max-width: 540px;
 }
 
-#preloader div:nth-child(3) {
-    animation: animate-preloader 1s ease-in-out -0.15s infinite;
+.mason-loader__eyebrow {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    color: rgba(216, 179, 95, 0.78);
 }
 
-#preloader div:nth-child(4) {
-    animation: animate-preloader 1s infinite;
+.mason-loader__copy strong {
+    font-family: "Barlow", sans-serif;
+    font-size: clamp(1.15rem, 2vw, 1.65rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #fff;
 }
 
-@keyframes animate-preloader {
+.mason-loader__status {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.64);
+    letter-spacing: 0.08em;
+}
+
+@keyframes mason-loader-pulse {
     0%,
     100% {
-        transform: scaleY(0.3);
+        transform: scale(0.94);
+        opacity: 0.72;
     }
     50% {
-        transform: scaleY(1);
+        transform: scale(1.05);
+        opacity: 1;
     }
+}
+
+@media (max-width: 575px) {
+    #preloader {
+        gap: 1.5rem;
+    }
+
+    .mason-loader {
+        width: min(34vw, 110px);
+    }
+
+    .mason-loader__status {
+        font-size: 0.82rem;
+        letter-spacing: 0.04em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mason-loader__icon {
+        animation: none;
+    }
+}
+
+.mason-site .mobile-nav-toggle,
+.mason-site .mobile-nav-active .mobile-nav-toggle {
+    color: #ffffff !important;
 }
 
 
@@ -6059,7 +6129,7 @@ section,
 @media (max-width: 1199px) {
     .mobile-nav-toggle,
     .mobile-nav-active .mobile-nav-toggle {
-        color: #111111 !important;
+        color: #ffffff !important;
     }
     .mason-site .navmenu ul {
         background: #ffffff;
